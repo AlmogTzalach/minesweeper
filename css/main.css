@@ -1,0 +1,23 @@
+td {
+  height: 40px;
+  width: 40px;
+  padding: 0px;
+  border: 1.5px solid;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.hidden-cell {
+  background-color: #c0c0c0;
+  color: #c0c0c0;
+}
+
+.revealed-cell {
+  background-color: #7b7b7b;
+  color: #c0c0c0;
+}
+
+img {
+  height: inherit;
+  width: inherit;
+}
