@@ -6,20 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Minesweeper</title>
     <link rel="stylesheet" href="css/main.css" />
+    <!-- <link rel="stylesheet" href="css/toggles.css" /> -->
   </head>
   <body onload="init()">
     <h1>Minesweeper</h1>
+
     <div class="buttons-container">
-        <button onclick="changeDifficulty(4, 2)">Easy (16)</button>
-        <button onclick="changeDifficulty(8, 12)">Medium (64)</button>
-        <button onclick="changeDifficulty(12, 30)">Expert (144)</button>
+      <button onclick="changeDifficulty(4, 2)">Easy (16)</button>
+      <button onclick="changeDifficulty(8, 12)">Medium (64)</button>
+      <button onclick="changeDifficulty(12, 30)">Expert (144)</button>
     </div>
+
     <div class="timer-container"><span class="timer"></span></div>
+
+    <div class="smiley" onclick="init()"></div>
+    
+    <!-- <label class="switch">
+      <input type="checkbox" onclick="addLives(this)" />
+      <span class="slider round"></span>
+    </label>
+
+    <div class="show-features">
+      <span class="feature lives"></span>
+    </div> -->
+
     <table>
       <tbody class="game-board"></tbody>
     </table>
-    <button onclick="init()">Restart Game</button>
+
+    <!-- <div class="reset-button">
+      <button onclick="init()">Restart Game</button>
+    </div> -->
+
+    <div class="footer">
+      <p>Almog Tzalach - Coffee Rights &copy</p>
+    </div>
+
     <script src="js/utils.js"></script>
+    <!-- <script src="js/features.js"></script> -->
     <script src="js/main.js"></script>
   </body>
 </html>

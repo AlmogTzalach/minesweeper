@@ -1,4 +1,80 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #379683;
+}
+
+h1 {
+  text-align: center;
+  color: antiquewhite;
+}
+
+.buttons-container {
+  max-height: 45px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.timer-container {
+  border: solid #05386b 2px;
+  border-radius: 8px;
+  margin-top: 18px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  font-size: 20px;
+  width: 40%;
+  height: 40px;
+  background-color: #04aa6d;
+}
+
+.smiley{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8px;
+  width: 40px;
+  padding: 15px 25px;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: antiquewhite;
+  background-color: #04aa6d;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.smiley:hover {
+  background-color: #3e8e41;
+}
+
+.smiley:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.timer {
+  display: inline-block;
+  padding-top: 10px;
+  color: antiquewhite;
+}
+
+table {
+  margin-bottom: 100px;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 td {
+  transition: 0.3s;
+  color: #8ee4af;
   height: 40px;
   width: 40px;
   padding: 0px;
@@ -7,17 +83,82 @@ td {
   vertical-align: middle;
 }
 
+td:hover {
+  transform:scale(1.05);
+}
+
 .hidden-cell {
-  background-color: #c0c0c0;
-  color: #c0c0c0;
+  background-color: #8ee4af;
+  color: #379683;
+}
+
+.hidden-cell:hover {
+  background-color: #8ff2b5;
+}
+
+.hidden-cell:hover {
+  cursor: pointer;
 }
 
 .revealed-cell {
-  background-color: #7b7b7b;
-  color: #c0c0c0;
+  background-color: #edf5e1;
+  color: #379683;
 }
 
 img {
-  height: inherit;
-  width: inherit;
+  height: 30px;
+  width: 30px;
+  margin: 0%;
+  padding: 0%;
 }
+
+.reset-button {
+  width: 200px;
+  margin-top: 8px;
+  margin-bottom: 80px;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 40px;
+  width: 100%;
+  background-color: #05386b;
+  color: antiquewhite;
+  text-align: center;
+}
+
+button {
+  width: 200px;
+  padding: 15px 25px;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: antiquewhite;
+  background-color: #04aa6d;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.show-features {
+  position: absolute;
+  left: 80%;
+}
+
+
