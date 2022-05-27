@@ -3,12 +3,12 @@
 const MINE_IMG = '<img src="assets/img/mineRegular.png" />';
 const FLAG_IMG = '<img src="assets/img/flag.png" />';
 
-const elSmiley = document.querySelector('.smiley')
+const elSmiley = document.querySelector('.smiley');
 
-const SMILEY_SLEEP = '😴'
-const SMILEY_NORMAL = '😄'
-const SMILEY_LOSE = '💀'
-const SMILEY_WIN = '😎'
+const SMILEY_SLEEP = '😴';
+const SMILEY_NORMAL = '😄';
+const SMILEY_LOSE = '💀';
+const SMILEY_WIN = '😎';
 
 const gBoard = [];
 
@@ -28,11 +28,12 @@ const gGame = {
   shownCount: 0,
   markedCount: 0,
   secsPassed: 0,
+  lives: 3,
 };
 
 function init() {
   clearInterval(gTimerInterval);
-  elSmiley.innerText = SMILEY_SLEEP
+  elSmiley.innerText = SMILEY_SLEEP;
   gTimer = 0;
   elTimer.innerHTML = 0;
   gGame.shownCount = 0;
@@ -42,6 +43,7 @@ function init() {
   buildBoard(gLevel.SIZE);
   renderBoard();
   preventContextMenu();
+  resetFeatures();
   gGame.isOn = true;
 }
 
@@ -106,7 +108,8 @@ function renderBoard() {
       }" class="hidden-cell no-right-click" oncontextmenu="cellFlagged(this, ${
         i + ',' + j
       })"
-      onclick="cellClicked(this, ${i + ',' + j})"></td>`;
+      onclick="cellClicked(this, ${i + ',' + j}), 
+      hintClicked(${i + ',' + j})"></td>`;
     }
     strHTML += '</tr>';
   }
@@ -155,16 +158,17 @@ function cellClicked(elCell, rowIdx, colIdx) {
         gBoard[i][j].minesAroundCount = setMinesNegsCount(i, j);
       }
     }
-    elSmiley.innerHTML = SMILEY_NORMAL
+    elSmiley.innerHTML = SMILEY_NORMAL;
     startTimer();
   }
   gIsFirstClick = false;
 
   let currCell = gBoard[rowIdx][colIdx];
   if (currCell.isShown || !gGame.isOn || currCell.isMarked) return;
-
+  //! Checkpoint
   if (currCell.isMine) {
-    gameOver();
+    elCell.innerHTML = MINE_IMG;
+    checkGameOver();
     return;
   }
 
@@ -199,14 +203,20 @@ function checkVictory() {
   ) {
     clearInterval(gTimerInterval);
     gGame.isOn = false;
-    elSmiley.innerHTML = SMILEY_WIN
+    elSmiley.innerHTML = SMILEY_WIN;
   } else {
     return;
   }
 }
 
-function gameOver() {
+function checkGameOver() {
   // Check conditions for game loss
+  if (gExtraFeatures && gGame.lives >= 1) {
+    const elHeart = document.querySelector(`.heart-${gGame.lives}`);
+    gGame.lives--;
+    elHeart.classList.add('hide')
+    return
+  }
   clearInterval(gTimerInterval);
   gGame.isOn = false;
   let currCell;
@@ -218,7 +228,7 @@ function gameOver() {
       if (currCell.isMine) elCell.innerHTML = MINE_IMG;
     }
   }
-  elSmiley.innerHTML = SMILEY_LOSE
+  elSmiley.innerHTML = SMILEY_LOSE;
 }
 
 function startTimer() {

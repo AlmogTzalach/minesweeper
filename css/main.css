@@ -32,7 +32,7 @@ h1 {
   background-color: #04aa6d;
 }
 
-.smiley{
+.smiley {
   margin-left: auto;
   margin-right: auto;
   margin-top: 8px;
@@ -84,7 +84,7 @@ td {
 }
 
 td:hover {
-  transform:scale(1.05);
+  transform: scale(1.05);
 }
 
 .hidden-cell {
@@ -112,13 +112,46 @@ img {
   padding: 0%;
 }
 
-.reset-button {
-  width: 200px;
-  margin-top: 8px;
-  margin-bottom: 80px;
+.hide {
+  visibility: hidden;
+}
+
+.feature-span {
   text-align: center;
-  margin-right: auto;
-  margin-left: auto;
+  position: absolute;
+  left: 80%;
+  margin-bottom: 10px;
+  width: 150px;
+  color: antiquewhite;
+  border: solid #05386b 2px;
+  border-radius: 8px;
+  background-color: #04aa6d;
+}
+
+.switch {
+  margin-top: 12px;
+  position: fixed;
+  left: 84%;
+}
+
+.features-panel {
+  position: absolute;
+  left: 80%;
+}
+
+.hint-unused {
+  width: 50px;
+  height: 50px;
+}
+
+.hint-used {
+  width: 50px;
+  height: 50px;
+}
+
+.heart {
+  width: 50px;
+  height: 50px;
 }
 
 .footer {
@@ -155,10 +188,3 @@ button:active {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
-
-.show-features {
-  position: absolute;
-  left: 80%;
-}
-
-

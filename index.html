@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Minesweeper</title>
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/toggles.css" />
   </head>
   <body onload="init()">
     <h1>Minesweeper</h1>
@@ -20,6 +21,37 @@
 
     <div class="smiley" onclick="init()"></div>
 
+    <div class="feature-span"><span>Special Features</span></div>
+    <label class="switch">
+      <input type="checkbox" />
+      <span class="slider round" onclick="addExtraFeatures() "></span>
+    </label>
+
+    <div class="features-panel hide">
+      <div class="hints">
+        <img
+          class="hint-unused"
+          onclick="hintUsed(this)"
+          src="assets/img/hintUnused.png"
+        />
+        <img
+          class="hint-unused"
+          onclick="hintUsed(this)"
+          src="assets/img/hintUnused.png"
+        />
+        <img
+          class="hint-unused"
+          onclick="hintUsed(this)"
+          src="assets/img/hintUnused.png"
+        />
+      </div>
+      <div class="lives">
+        <img class="heart heart-1" src="assets/img/heart.png" alt="">
+        <img class="heart heart-2" src="assets/img/heart.png" alt="">
+        <img class="heart heart-3" src="assets/img/heart.png" alt="">
+      </div>
+    </div>
+
     <table>
       <tbody class="game-board"></tbody>
     </table>
@@ -29,6 +61,7 @@
     </div>
 
     <script src="js/utils.js"></script>
+    <script src="js/features.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
