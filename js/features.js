@@ -4,21 +4,25 @@ let gExtraFeatures = false;
 let isHint = false;
 let gHintCellLocation;
 
+// Enable/Disable the special features (Extra Lives, Hints, etc.)
 function addExtraFeatures() {
   gExtraFeatures = !gExtraFeatures;
   toggleFeaturesPanel();
 }
 
+// Toggle the special features panel on/off
 function toggleFeaturesPanel() {
   const elFeaturesPanel = document.querySelector('.features-panel');
   elFeaturesPanel.classList.toggle('hide');
 }
 
+// Reset the counters for the special features on game restart
 function resetFeatures() {
   resetHints();
   resetLives();
 }
 
+// Make all light bulbs (hints) appear unlit
 function resetHints() {
   const elLightBulbs = document.querySelectorAll('.hint-used');
   for (let i = 0; i < elLightBulbs.length; i++) {
@@ -28,15 +32,18 @@ function resetHints() {
   }
 }
 
+// Reset the three lives counter
 function resetLives() {
   gGame.lives = 3;
   const elLives = document.querySelectorAll('.heart');
   for (let i = 0; i < elLives.length; i++) {
-    elLives[i].classList.remove('hide')
+    elLives[i].classList.remove('hide');
   }
 }
 
+// Make light bulb (hint) appear used and enable hint
 function hintUsed(elLightBulb) {
+  if (isHint) return;
   if (elLightBulb.classList.contains('hint-used')) return;
   gGame.isOn = false;
   isHint = true;
@@ -45,6 +52,7 @@ function hintUsed(elLightBulb) {
   elLightBulb.classList.add('hint-used');
 }
 
+// Make the cell and surrounding cell shown for 1 second
 function hintClicked(rowIdx, colIdx) {
   if (!isHint) return;
 
